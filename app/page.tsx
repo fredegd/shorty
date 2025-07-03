@@ -8,6 +8,7 @@ import { Copy, Link, Check, AlertCircle, Loader2 } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { createShortUrl, isValidUrl } from "@/lib/url-service"
 import { isSupabaseConfigured } from "@/lib/supabase"
+import { getBaseUrl } from "@/lib/utils"
 
 export default function Home() {
   const [url, setUrl] = useState("")
@@ -41,8 +42,9 @@ export default function Home() {
         return
       }
 
-      // Set shortened URL
-      const shortened = `https://shorty.app/${shortCode}`
+      // Set shortened URL - use production domain
+      const baseUrl = getBaseUrl()
+      const shortened = `${baseUrl}/${shortCode}`
       setShortenedUrl(shortened)
     } catch (err) {
       setError("An unexpected error occurred")

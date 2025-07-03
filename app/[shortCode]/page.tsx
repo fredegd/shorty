@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, ArrowLeft, AlertCircle, Loader2 } from "lucide-react"
 import Link from "next/link"
 import { getOriginalUrl, trackClick } from "@/lib/url-service"
+import { getBaseUrl } from "@/lib/utils"
 
 export default function RedirectPage() {
   const params = useParams()
@@ -30,10 +31,10 @@ export default function RedirectPage() {
         // Track the click
         await trackClick(shortCode)
 
-        // Auto-redirect after 3 seconds
+        // Auto-redirect after 0.1 seconds
         setTimeout(() => {
           window.location.href = url
-        }, 3000)
+        }, 100)
       } catch (err) {
         setError("Failed to load URL")
         console.error(err)
@@ -65,6 +66,9 @@ export default function RedirectPage() {
   }
 
   if (error || !originalUrl) {
+    const baseUrl = getBaseUrl()
+    const displayDomain = baseUrl.replace('https://', '').replace('http://', '')
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
         <Card className="w-full max-w-md">
@@ -72,7 +76,7 @@ export default function RedirectPage() {
             <AlertCircle className="h-12 w-12 text-red-500 mx-auto" />
             <h1 className="text-xl font-semibold text-gray-900">URL Not Found</h1>
             <p className="text-gray-600">
-              The short URL <code className="bg-gray-100 px-2 py-1 rounded">shorty.app/{shortCode}</code> doesn't exist
+              The short URL <code className="bg-gray-100 px-2 py-1 rounded">{displayDomain}/{shortCode}</code> doesn't exist
               or has expired.
             </p>
             <Link href="/">
