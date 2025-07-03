@@ -114,7 +114,7 @@ export default function RedirectPage() {
             <Link href="/">
               <Button variant="outline" className="w-full">
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Shorty
+                Back to Lisho
               </Button>
             </Link>
           </div>

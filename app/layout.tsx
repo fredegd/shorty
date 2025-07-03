@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'shorty-url-shortener',
+  title: 'lisho-url-links-shortener',
   description: 'Yet Another Url Shortener',
   icons: {
     icon: '/favicon.ico',

@@ -195,7 +195,7 @@ export const createShortUrlLocal = (
   originalUrl: string
 ): { shortCode: string; error?: string } => {
   try {
-    const savedMappings = localStorage.getItem("shorty-mappings");
+    const savedMappings = localStorage.getItem("lisho-mappings");
     const urlMappings: UrlMapping = savedMappings
       ? JSON.parse(savedMappings)
       : {};
@@ -216,7 +216,7 @@ export const createShortUrlLocal = (
 
     // Save to localStorage
     urlMappings[shortCode] = originalUrl;
-    localStorage.setItem("shorty-mappings", JSON.stringify(urlMappings));
+    localStorage.setItem("lisho-mappings", JSON.stringify(urlMappings));
 
     return { shortCode };
   } catch (error) {
@@ -230,7 +230,7 @@ export const getOriginalUrlLocal = (
   shortCode: string
 ): { url?: string; error?: string } => {
   try {
-    const savedMappings = localStorage.getItem("shorty-mappings");
+    const savedMappings = localStorage.getItem("lisho-mappings");
     if (!savedMappings) {
       return { error: "Short URL not found" };
     }

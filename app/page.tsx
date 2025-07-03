@@ -7,7 +7,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Copy, Link, Check, AlertCircle, Loader2 } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { createShortUrl, isValidUrl } from "@/lib/url-service"
-import { isSupabaseConfigured } from "@/lib/supabase"
 import { getBaseUrl } from "@/lib/utils"
 import DebugPanel from "@/components/debug-panel"
 
@@ -81,17 +80,14 @@ export default function Home() {
           <CardHeader className="text-center pb-6">
             <div className="flex items-center justify-center gap-2 mb-2">
               <Link className="h-8 w-8 text-indigo-600" />
-              <CardTitle className="text-3xl font-bold text-gray-900">Shorty</CardTitle>
+              <CardTitle className="text-3xl font-bold text-gray-900">LISHO</CardTitle>
             </div>
-            <p className="text-gray-600">Make your URLs short and sweet</p>
-            {isSupabaseConfigured ? (
-              <p className="text-xs text-green-600 font-medium">✅ Cloud storage enabled</p>
-            ) : (
-              <div className="space-y-1">
-                <p className="text-xs text-amber-600 font-medium">⚠️ Using local storage (browser only)</p>
-                <p className="text-xs text-gray-500">Add Supabase integration for universal URLs</p>
-              </div>
-            )}
+            <p className="text-gray-600">Make your&nbsp;
+              <span className="text-orange-500 font-semibold">LI</span>
+              nks&nbsp;
+              <span className="text-orange-500 font-semibold">SHO</span>
+              rt</p>
+
           </CardHeader>
 
           <CardContent className="space-y-6">
@@ -151,11 +147,7 @@ export default function Home() {
                 </div>
                 {copied && <p className="text-sm text-green-600 font-medium">Copied to clipboard!</p>}
                 <div className="space-y-1">
-                  {isSupabaseConfigured ? (
-                    <p className="text-xs text-gray-600">✅ This URL works from any device, anywhere!</p>
-                  ) : (
-                    <p className="text-xs text-amber-600">⚠️ This URL only works in this browser</p>
-                  )}
+
                   <p className="text-xs text-gray-600">Click the URL above to test the redirect</p>
                 </div>
               </div>
