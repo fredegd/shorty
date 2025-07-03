@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export function getBaseUrl(): string {
   // In production, use the production domain
   if (process.env.NODE_ENV === "production") {
-    return "https://lisho.vercel.app";
+    return "https://lisho.eu"; // production domain
   }
 
   // In development, use localhost

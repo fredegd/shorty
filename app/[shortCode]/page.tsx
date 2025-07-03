@@ -31,10 +31,10 @@ export default function RedirectPage() {
         // Track the click
         await trackClick(shortCode)
 
-        // Auto-redirect after 0.1 seconds
+        // Auto-redirect after 0.05 seconds
         setTimeout(() => {
           window.location.href = url
-        }, 100)
+        }, 50)
       } catch (err) {
         setError("Failed to load URL")
         console.error(err)
