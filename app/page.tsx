@@ -160,11 +160,7 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        <div className="mt-6 text-center">
-          <p className="text-sm text-gray-500">
-            {isSupabaseConfigured ? "URLs are stored securely in the cloud" : "URLs are stored locally in your browser"}
-          </p>
-        </div>
+
       </div>
     </div>
   )
