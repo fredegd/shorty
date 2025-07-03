@@ -9,6 +9,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { createShortUrl, isValidUrl } from "@/lib/url-service"
 import { isSupabaseConfigured } from "@/lib/supabase"
 import { getBaseUrl } from "@/lib/utils"
+import DebugPanel from "@/components/debug-panel"
 
 export default function Home() {
   const [url, setUrl] = useState("")
@@ -162,7 +163,7 @@ export default function Home() {
           </CardContent>
         </Card>
 
-
+        <DebugPanel />
       </div>
     </div>
   )
